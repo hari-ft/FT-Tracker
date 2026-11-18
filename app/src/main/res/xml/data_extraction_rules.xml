@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Backup rules for Android 12 and newer. Usage history (usage.db) and settings are kept in the
+  phone's encrypted Google backup and in phone-to-phone transfers. Left out:
+   - logs/: the app log stays on this phone only;
+   - background_health.xml: last background-save times describe this phone, and restoring them
+     elsewhere would make the auto-start check report "Working" before anything has run.
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="file" path="logs/" />
+        <exclude domain="sharedpref" path="background_health.xml" />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="file" path="logs/" />
+        <exclude domain="sharedpref" path="background_health.xml" />
+    </device-transfer>
+</data-extraction-rules>
